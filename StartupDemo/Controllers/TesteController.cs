@@ -8,9 +8,21 @@ namespace StartupDemo.Controllers
 {
     public class TesteController : Controller
     {
-        public IActionResult Index()
+        //Verbos
+        [HttpGet, HttpPost]
+        [Route("")]
+        [Route("dashboard/tela-inicial")]
+        [Route("dashboard/tela-inicial/{id:int}/{valor:guid}")]
+        public IActionResult Index(int id, Guid valor)
         {
-            return View();
+            //return View();
+            //return Json("{'Nome': 'Chelder'}");
+            return RedirectToAction("Teste");
+        }
+
+        public IActionResult Teste()
+        {
+            return View("Index");
         }
     }
 }
