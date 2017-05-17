@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using StartupDemo.Models;
 
 namespace StartupDemo
 {
@@ -21,7 +23,7 @@ namespace StartupDemo
 
             if (env.IsDevelopment())
             {
-                builder.AddUserSecrets();
+                //builder.AddUserSecrets();
             }
 
             builder.AddEnvironmentVariables();
@@ -33,10 +35,13 @@ namespace StartupDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var testConfig = Configuration["Email"];
+            //var testConfig = Configuration["Email"];
 
             // Add framework services.
             services.AddMvc();
+
+            services.AddDbContext<StartupDemoContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("StartupDemoContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
