@@ -32,6 +32,6 @@ namespace StartupDemo.Models
     public class EventoCategoriaViewModel
     {
         public Evento Evento { get; set; }
-        public Ienumerable<Categoria> Categorias { get; set; }
+        public IEnumerable<Categoria> Categorias { get; set; }
     }
 }

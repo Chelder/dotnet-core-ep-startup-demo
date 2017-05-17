@@ -26,6 +26,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Views\Shared\Components\Carrinho\" />
     <Folder Include="Views\Teste\" />
   </ItemGroup>
 
